@@ -58,7 +58,7 @@ include(ROOT_PATH . 'inc/menubar.php');
 
     <div class="row">
         <!-- Contribution List panel -->
-        <div class="col-md-8 col-sm-6 col-xs-12">
+        <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
                   <h2><i class="fa fa-bullhorn"></i> Monthly Contribution </h2>
@@ -93,22 +93,6 @@ include(ROOT_PATH . 'inc/menubar.php');
             </div>
         </div>
         <!-- /Contribution List Panel -->
-
-        <!-- Calendar Panel-->
-        <div class="col-md-4 col-sm-6 col-xs-12">
-            <div class="x_panel">
-                <div class="x_title">
-                  <h2><i class="fa fa-calender"></i> Calendar</h2>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                    <div >
-                        <h3 style="text-align: center; font-size: 500%"> <?php echo date("d-M-Y")?></h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- / Calendar Panel -->
     </div>
 
 
