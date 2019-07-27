@@ -25,6 +25,7 @@ if(isset($_GET["id"])){
       "homeAddress"            => $row["homeAddress"],
       "mobileNumber"             => $row["mobileNumber"],
       "emailAddress"                 => $row["emailAddress"],
+      "imageLink"                 => $row["imageLink"],
       "nxtKinName"                    => $row["nxtKinName"],
       "nxtKinNumber"                    => $row["nxtKinNumber"],
       "nxtKinAddress"                    => $row["nxtKinAddress"],

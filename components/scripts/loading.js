@@ -18,7 +18,7 @@ $(document).ready(function(){
 
     function get_pagination(){
 		$.ajax({
-			url: '../components/modules/pagination.php',
+			url: '../../components/modules/pagination.php',
 			data: "getnumber",
 			success:function(html){
 				$("#pagination").html(html);
@@ -28,7 +28,7 @@ $(document).ready(function(){
     
     function get_announcement_pagination(){
 		$.ajax({
-			url: '../components/modules/announcementPagination.php',
+			url: '../../components/modules/announcementPagination.php',
 			data: "getAnnouncementPagination",
 			success:function(html){
 				$("#announcement_pagination").html(html);
@@ -38,7 +38,7 @@ $(document).ready(function(){
     
     function get_pending_list_pagination(){
 		$.ajax({
-			url: '../components/modules/pendingListPagination.php',
+			url: '../../components/modules/pendingListPagination.php',
 			data: "getPendingListPagination",
 			success:function(html){
 				$("#pendingList_pagination").html(html);
@@ -50,7 +50,7 @@ $(document).ready(function(){
 
          $.ajax({
             type: 'GET',
-            url: '../components/modules/countMembers.php',
+            url: '../../components/modules/countMembers.php',
             data: "countMembers",
             success:function(html){
             $("#countMembers").html(html);
@@ -62,7 +62,7 @@ $(document).ready(function(){
 
         $.ajax({
            type: 'GET',
-           url: '../components/modules/totalAmount.php',
+           url: '../../components/modules/totalAmount.php',
            data: "totalAmount",
            success:function(html){
            $("#totalAmount").html(html);
@@ -74,7 +74,7 @@ $(document).ready(function(){
 
         $.ajax({
             type: 'GET',
-            url: '../components/modules/pendingRequest.php',
+            url: '../../components/modules/pendingRequest.php',
             data: "pendingRequest",
             success:function(html){
                 $("#pendingRequest").html(html);
@@ -87,7 +87,7 @@ $(document).ready(function(){
 
             $.ajax({
                 type: 'GET',
-                url: '../components/modules/loadSex.php',
+                url: '../../components/modules/loadSex.php',
                 data: "nxtKinSex",
                 success:function(html){
                 $("#nxtKinSex").html(html);
@@ -99,7 +99,7 @@ $(document).ready(function(){
 
         $.ajax({
                 type: 'GET',
-                url: '../components/modules/announcer.php',
+                url: '../../components/modules/announcer.php',
                 data: "announcer",
                 success:function(html){
                 $("#announcer").html(html);
@@ -126,7 +126,7 @@ $(document).ready(function(){
 
             $.ajax({
                 type: 'GET',
-                url: '../components/modules/loadBanks.php',
+                url: '../../components/modules/loadBanks.php',
                 data: "loadBanks",
                 success:function(html){
                 $("#bankName").html(html);
@@ -138,7 +138,7 @@ $(document).ready(function(){
 
             $.ajax({
                 type: 'GET',
-                url: '../components/modules/loadRelationship.php',
+                url: '../../components/modules/loadRelationship.php',
                 data: "loadRelationship",
                 success:function(html){
                 $("#nxtKinRelationship").html(html);
@@ -149,7 +149,7 @@ $(document).ready(function(){
     function LoadSex() {
         $.ajax({
             type: 'GET',
-            url: '../components/modules/loadSex.php',
+            url: '../../components/modules/loadSex.php',
             data: "loadState",
             success:function(html){
             $("#sex").html(html);
@@ -161,7 +161,7 @@ $(document).ready(function(){
 
             $.ajax({
                 type: 'GET',
-                url: '../components/modules/loadState.php',
+                url: '../../components/modules/loadState.php',
                 data: "loadState",
                 success:function(html){
                 $("#location").html(html);
@@ -172,7 +172,7 @@ $(document).ready(function(){
     function get_table_data(page){
 
         $.ajax({
-            url: '../components/modules/getMembers.php',
+            url: '../../components/modules/getMembers.php',
             type: 'GET',
             data: {page:page},
             dataType: 'json',
@@ -310,7 +310,7 @@ $(document).ready(function(){
             var data = $("#createUser").serialize();
             $.ajax({
                 type: 'POST',
-                url: '../components/modules/addMembers.php',
+                url: '../../components/modules/addMembers.php',
                 data: data,
                 beforeSend: function(){
                     $("#send").html('Submitting Leave..');
@@ -363,7 +363,7 @@ $(document).ready(function(){
     function get_pending_list(page){
 
         $.ajax({
-            url: '../components/modules/getPendingList.php',
+            url: '../../components/modules/getPendingList.php',
             type: 'GET',
             data: {page:page},
             success:function(html){
@@ -386,7 +386,7 @@ $(document).ready(function(){
         var reg_id = $(this).parent("td").data('id');
         $.ajax({
             type: 'GET',
-            url: '../components/modules/deactivate.php',
+            url: '../../components/modules/deactivate.php',
             data: {reg_id : reg_id },
             success:function(response){
             if(response == 'okay'){
@@ -415,7 +415,7 @@ $(document).ready(function(){
         var reg_id = $(this).parent("td").data('id');
         $.ajax({
             type: 'GET',
-            url: '../components/modules/activate.php',
+            url: '../../components/modules/activate.php',
             data: {reg_id : reg_id },
             success:function(response){
             if(response == 'okay'){
@@ -468,7 +468,7 @@ $(document).ready(function(){
             var data = $("#create_announcement").serialize();
             $.ajax({
                 type: 'POST',
-                url: '../components/modules/addAnnouncement.php',
+                url: '../../components/modules/addAnnouncement.php',
                 data: data,
                 beforeSend: function(){
                     $("#send_announcement").html('Submitting Leave..');
@@ -513,7 +513,7 @@ $(document).ready(function(){
     function announcement_table(page){
 
         $.ajax({
-            url: '../components/modules/getAnnoucement.php',
+            url: '../../components/modules/getAnnoucement.php',
             type: 'GET',
             data: {page:page},
             dataType: 'json',
@@ -577,7 +577,7 @@ $(document).ready(function(){
     function view_single_profile(link){
 
         $.ajax({
-            url: '../components/modules/getProfile.php',
+            url: '../../components/modules/getProfile.php',
             type: 'GET',
             data: {link:link},
             dataType: 'json',
@@ -644,7 +644,7 @@ $(document).ready(function(){
         var id = $(this).parent("td").data('id');
         $.ajax({
             type: 'GET',
-            url: '../components/modules/deleteMember.php',
+            url: '../../components/modules/deleteMember.php',
             data: {id : id },
             success:function(response){
             if(response == 'okay'){

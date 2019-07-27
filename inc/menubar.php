@@ -8,7 +8,7 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li style="margin-right: 5%;" class="">
-                    <a><i class="glyphicon glyphicon-off"></i> Logout </a>
+                    <a href="<?php echo BASE_URL;?>logout.php"><i class="glyphicon glyphicon-off"></i> Logout </a>
                 </li>
             </ul>
         </nav>

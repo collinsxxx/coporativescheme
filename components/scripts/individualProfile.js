@@ -79,7 +79,7 @@ $(document).ready(function(){
             var data = $("#updateProfile").serialize();
             $.ajax({
                 type: 'POST',
-                url: '../components/modules/updateProfile.php',
+                url: '../../components/modules/updateProfile.php',
                 data: data,
                 beforeSend: function(){
                     $("#send").attr("disabled", true);
@@ -127,7 +127,7 @@ $(document).ready(function(){
 
         $.ajax({
             type: 'GET',
-            url: '../components/modules/loadPersonalProfile.php',
+            url: '../../components/modules/loadPersonalProfile.php',
             data: {id : id },
             dataType: 'json',
             }).done(function(data){
@@ -212,7 +212,7 @@ $(document).ready(function(){
 
             row +='<div class="col-md-6 col-sm-6 col-xs-12">';
             row +='<div class="form-group">';
-            row +='<input type="hidden" id="img_show" name="img_show" class="form-control" value="no-image.png">';
+            row +='<input type="hidden" id="img_show" name="img_show" class="form-control" value="'+ value.imageLink +'">';
             row +='</div>';
             row +='</div>';
 
@@ -251,7 +251,7 @@ $(document).ready(function(){
                 var form_data = new FormData();
                 form_data.append("img_file", property);
                 $.ajax({
-                    url:"../components/modules/loadImage.php",
+                    url:"../../components/modules/loadImage.php",
                     method:"POST",
                     data:form_data,
                     contentType:false,
@@ -273,7 +273,7 @@ $(document).ready(function(){
         var id = $("#token_id").val();
 
         $.ajax({
-            url: '../components/modules/getProfileImage.php',
+            url: '../../components/modules/getProfileImage.php',
             type: 'POST',
             data: { id : id },
             dataType: 'json',
@@ -301,7 +301,7 @@ $(document).ready(function(){
     function manageprofileImageContent(data){
             var row = '';
             $.each(data, function(key, value){
-                row += '<img src="../uploads/images/'+ value.imageLink +'" alt="..." class="img-circle profile_img">';
+                row += '<img src="../../uploads/images/'+ value.imageLink +'" alt="..." class="img-circle profile_img">';
             });
 
         $("#profileImageContent").html(row);

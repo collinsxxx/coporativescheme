@@ -6,11 +6,12 @@ require_once(ROOT_PATH . 'core/init.php');
 
 include(ROOT_PATH . 'inc/header.php');
 
+
+include(ROOT_PATH . 'inc/details.php');
 include(ROOT_PATH . 'inc/member_navbar.php');
 
 
 include(ROOT_PATH . 'inc/menubar.php');
-include(ROOT_PATH . 'inc/details.php');
 ?>
 
 
@@ -48,7 +49,7 @@ include(ROOT_PATH . 'inc/details.php');
                                     <th style="text-align: center">DATE</th>
                                     <th style="text-align: center">UNIQUE ID</th>
                                     <th style="text-align: center">FULLNAME</th>
-                                    <th style="text-align: center">AMOUNT</th>
+                                    <th style="text-align: center">CONT. AMOUNT</th>
                                     <th style="text-align: center">PREV. DEBT</th>
                                 </tr>
                             </thead>
@@ -131,36 +132,35 @@ include(ROOT_PATH . 'inc/details.php');
             <div class="modal-content">
 
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Announcement</h4>
+                    <h4 class="modal-title" id="myModalLabel">New Loan Request</h4>
                 </div>
                 <div class="modal-body">
                 <form id="requestForLoan" class="form-horizontal form-label-left input_mask">
 
                         <div class="col-md-6 col-sm-12 col-xs-12 form-group has-feedback">
                             <span class="fa fa-qrcode form-control-feedback left" aria-hidden="true"></span>
-                            <input type="text" class="form-control has-feedback-left" id="unique_id" name="unique_id" readonly="read-only">
+                            <input type="text" class="form-control has-feedback-left" id="unique_id" name="unique_id" value="<?php echo $username?>" readonly="read-only">
                         </div>
-                        <div class="col-md-6 col-sm-12 col-xs-12 form-group has-feedback">
-                            <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-                            <input type="text" class="form-control has-feedback-left" id="date" name="date" value="<?php echo date("d-m-Y");?>" readonly="read-only">
+                        <div class="col-md-6 col-sm-12 col-xs-12 form-group has-feedback" hidden>
+                            <input type="text" class="form-control has-feedback-left" id="date" name="date" value="<?php echo date("Y-m-d");?>" readonly="read-only">
                         </div>
 
                         <div class="col-md-6 col-sm-12 col-xs-12 form-group has-feedback">
                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-                            <input type="text" class="form-control has-feedback-left" id="surname" name="surname" value="<?php echo date("d-m-Y");?>" readonly="read-only">
+                            <input type="text" class="form-control has-feedback-left" id="surname" name="surname" value="<?php echo $surname;?>" readonly="read-only">
                         </div>
                         <div class="col-md-6 col-sm-12 col-xs-12 form-group has-feedback">
                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-                            <input type="text" class="form-control has-feedback-left" id="othername" name="othername" value="<?php echo date("d-m-Y");?>" readonly="read-only">
+                            <input type="text" class="form-control has-feedback-left" id="othername" name="othername" value="<?php echo $othername;?>" readonly="read-only">
                         </div>
 
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback" hidden>
-                            <input type="text" class="form-control" id="token_id2" name="token_id2" value="<?php echo date("d-m-Y");?>">
+                            <input type="text" class="form-control" id="token_id2" name="token_id2" value="<?php echo $token;?>">
                         </div>
 
                         <div class="col-md-6 col-sm-12 col-xs-12 form-group has-feedback">
                             <span class="fa fa-newspaper-o form-control-feedback left" aria-hidden="true"></span>
-                            <input type="text" class="form-control has-feedback-left" id="amountRequested" name="amountRequested" placeholder="Loan Amount">
+                            <input type="number" class="form-control has-feedback-left" id="amountRequested" name="amountRequested" placeholder="Loan Amount">
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                             <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>

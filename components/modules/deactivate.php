@@ -10,7 +10,7 @@ if(isset($_GET["reg_id"])){
 
     $members = new Members();
 			
-    $value = 2;
+    $value = 0;
 
     try{
         $members->update('login_table', 'reg_id', $id, array(

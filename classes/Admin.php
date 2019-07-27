@@ -47,7 +47,7 @@ class Admin {
 	public function find($user = null) {
 		if($user) {
 			$field = (is_numeric($user)) ? 'id' : 'username';
-			$data = $this->_db->get('userstable', array($field, '=', $user));
+			$data = $this->_db->get('login_table', array($field, '=', $user));
 
 			if($data->count()) {
 				$this->_data = $data->first();

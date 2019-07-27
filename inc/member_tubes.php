@@ -1,3 +1,6 @@
+<div class="title_left">
+<h3><span><?php echo $fullname;?></span></h3>
+</div>
 
     <!-- Notification Tubes-->
     <div class="row top_tiles">

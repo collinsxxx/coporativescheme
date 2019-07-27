@@ -14,7 +14,7 @@ $(document).ready(function(){
         var id = $("#token_id").val();
         $.ajax({
            type: 'GET',
-           url: '../components/modules/totalIndividualAmount.php',
+           url: '../../components/modules/totalIndividualAmount.php',
            data: {id:id},
            success:function(html){
            $("#totalContribution").html(html);
@@ -26,7 +26,7 @@ $(document).ready(function(){
         var id = $("#token_id").val();
         $.ajax({
             type: 'GET',
-            url: '../components/modules/UniqueIDDisplay.php',
+            url: '../../components/modules/UniqueIDDisplay.php',
             data: {id:id},
             success:function(html){
             $("#UniqueIDDisplay").html(html);
@@ -38,7 +38,7 @@ $(document).ready(function(){
         var id = $("#token_id").val();
         $.ajax({
            type: 'GET',
-           url: '../components/modules/totalDebtIndividual.php',
+           url: '../../components/modules/totalDebtIndividual.php',
            data: {id:id},
            success:function(html){
            $("#totalDebtIndividual").html(html);
@@ -48,7 +48,7 @@ $(document).ready(function(){
 
     function get_announcement_pagination(){
 		$.ajax({
-			url: '../components/modules/announcementPagination.php',
+			url: '../../components/modules/announcementPagination.php',
 			data: "getAnnouncementPagination",
 			success:function(html){
 				$("#announcement_pagination").html(html);
@@ -60,7 +60,7 @@ $(document).ready(function(){
         var id = $("#token_id").val();
         $.ajax({
                 type: 'GET',
-                url: '../components/modules/individualContributionPagination.php',
+                url: '../../components/modules/individualContributionPagination.php',
                 data: {id:id},
                 success:function(html){
                 $("#individualContributionPagination").html(html);
@@ -72,7 +72,7 @@ $(document).ready(function(){
         var id = $("#token_id").val();
         $.ajax({
                 type: 'GET',
-                url: '../components/modules/individualLoanRequestPagination.php',
+                url: '../../components/modules/individualLoanRequestPagination.php',
                 data: {id:id},
                 success:function(html){
                 $("#individualLoanRequestPagination").html(html);
@@ -83,7 +83,7 @@ $(document).ready(function(){
     function announcement_table(page){
 
         $.ajax({
-            url: '../components/modules/getAnnoucement.php',
+            url: '../../components/modules/getAnnoucement.php',
             type: 'GET',
             data: {page:page},
             dataType: 'json',
@@ -139,7 +139,7 @@ $(document).ready(function(){
         var id = $("#token_id").val();
 
         $.ajax({
-            url: '../components/modules/getIndividualContributionList.php',
+            url: '../../components/modules/getIndividualContributionList.php',
             type: 'GET',
             data: {id:id, page:page},
             dataType: 'json',
@@ -191,7 +191,7 @@ $(document).ready(function(){
     function individualLoanRequestTable(page){
         var id = $("#token_id").val();
         $.ajax({
-            url: '../components/modules/getindividualLoanRequestTable.php',
+            url: '../../components/modules/getindividualLoanRequestTable.php',
             type: 'GET',
             data: {id:id, page:page},
             dataType: 'json',
@@ -275,7 +275,7 @@ $(document).ready(function(){
             var data = $("#requestForLoan").serialize();
             $.ajax({
                 type: 'POST',
-                url: '../components/modules/sentIndividualRequest.php',
+                url: '../../components/modules/sentIndividualRequest.php',
                 data: data,
                 beforeSend: function(){
                     $("#send").html('Submitting Leave..');

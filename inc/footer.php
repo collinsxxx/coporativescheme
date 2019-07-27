@@ -3,10 +3,10 @@
           <div class="row">
             <div class="col-md-6 col-sm-6 col-xs-6">
               <div class="pull-left">
-                <a href="https://colorlib.com"> <i style="font-size: 200%" class="fa fa-github"></i> </a>
+                <a href="https://github.com/collinsxxx" target="_blank"> <i style="font-size: 200%" class="fa fa-github"></i> </a>
               </div>
               <div class="pull-left" style="margin-left: 1%">
-                <a href="https://colorlib.com"> <i style="font-size: 200%" class="fa fa-twitter"></i> </a>
+                <a href="https://twitter.com/@alwaztyping" target="_blank"> <i style="font-size: 200%" class="fa fa-twitter"></i> </a>
               </div>
               <div class="pull-left" style="margin-left: 1%">
                 <a href="https://colorlib.com"> <i style="font-size: 200%" class="fa fa-linkedin"></i> </a>

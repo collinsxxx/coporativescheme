@@ -6,10 +6,10 @@ require_once(ROOT_PATH . 'core/init.php');
 
 include(ROOT_PATH . 'inc/header.php');
 
+include(ROOT_PATH . 'inc/details.php');
 include(ROOT_PATH . 'inc/member_navbar.php');
 
 include(ROOT_PATH . 'inc/menubar.php');
-include(ROOT_PATH . 'inc/details.php');
 ?>
 
 
