@@ -15,6 +15,3 @@ foreach ($rows as $row) {
 echo $output;
 
 ?>
-
-
-<?php 

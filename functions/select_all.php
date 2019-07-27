@@ -405,7 +405,7 @@ function deleteLoginDetails($table, $name) {
         }
 }
 
-function select_matric2($table, $name) {
+function selectIndividualCash($table, $field, $id) {
     try{
     $db = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT,DB_USER,DB_PASS);
     $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
@@ -415,21 +415,22 @@ function select_matric2($table, $name) {
         echo "Could not connect to the database";
         exit;
     }
-        try{
-        $result = $db->prepare("SELECT * FROM {$table} WHERE id = ? ORDER BY id DESC");
-        $result->bindParam(1, $name);
+    try{
+        $result = $db->prepare("SELECT {$field} FROM {$table} WHERE `token_id` = ?");
+        $result->bindParam(1, $id);
         $result->execute();
         }catch(Exception $e){
         echo "could not retrive data, something went wrong ($table) ";
         exit;
         }
         //pass the query into the product variable
-        $return = $result->fetchAll(PDO::FETCH_ASSOC);
+        $return = $result->fetch(PDO::FETCH_ASSOC);
 
-    return $return;
+        $reply = $return[$field];
+        return $reply;
 }
 
-function select_matric3($table, $name) {
+function select_profle($table, $name) {
     try{
     $db = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT,DB_USER,DB_PASS);
     $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
@@ -440,7 +441,7 @@ function select_matric3($table, $name) {
         exit;
     }
         try{
-        $result = $db->prepare("SELECT * FROM {$table} WHERE referralCode = ? ORDER BY id DESC");
+        $result = $db->prepare("SELECT * FROM {$table} WHERE `token_id` = ?");
         $result->bindParam(1, $name);
         $result->execute();
         }catch(Exception $e){
@@ -739,7 +740,7 @@ function select_single_balance($table, $name) {
 }
 
 
-function email_view($table, $name) {
+function individualContributionView($table, $name, $start, $end) {
     try{
     $db = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT,DB_USER,DB_PASS);
     $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
@@ -750,7 +751,7 @@ function email_view($table, $name) {
         exit;
     }
         try{
-        $result = $db->prepare("SELECT loan_date,loan_id,staff_id,full_name,nexcop_account_no,loan_type,refund_date,amount_requested,amount_received,loan_status FROM {$table} WHERE email = ? ORDER BY id DESC");
+        $result = $db->prepare("SELECT * FROM {$table} WHERE `token_id` = ? ORDER BY id DESC LIMIT {$start}, {$end}");
         $result->bindParam(1, $name);
         $result->execute();
         }catch(Exception $e){
@@ -759,6 +760,30 @@ function email_view($table, $name) {
         }
         //pass the query into the product variable
         $return = $result->fetchAll(PDO::FETCH_ASSOC);
+
+    return $return;
+}
+
+function select_all_count_indiviual_contribution($table, $name) {
+    try{
+    $db = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT,DB_USER,DB_PASS);
+    $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    $db->exec("SET NAMES 'utf8'");
+    } catch (Exception $e){
+        // if unable to connect to the database
+        echo "Could not connect to the database";
+        exit;
+    }
+        try{
+        $result = $db->prepare("SELECT * FROM {$table} WHERE `token_id` = ? ORDER BY id DESC");
+        $result->bindParam(1, $name);
+        $result->execute();
+        }catch(Exception $e){
+        echo "could not retrive data, something went wrong ($table) ";
+        exit;
+        }
+        //pass the query into the product variable
+        $return = $result->rowCount();
 
     return $return;
 }

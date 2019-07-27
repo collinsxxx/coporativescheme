@@ -25,21 +25,22 @@ if (Input::exists()){
             
 
 			try{
-				$members->create('contribution_table',array(
+				$selectTotalcontribution = selectNetorDebt('account_table', 'totalContribution', 'token_id', $token_id);
+                $selectDebt = selectNetorDebt('debtor_table', 'debtAmount', 'token_id', $token_id);
+                $totalCash = select_Cash('totalcash_table','totalCash');
+
+                $members->create('contribution_table',array(
 
                     "transaction_code" 			=>	$transaction_code,
                     "date"				        =>	date('Y-m-d'),
                     "unique_id" 				=>	$unique_id,
                     "fullname" 					=>	$fullname,
                     "contributionAmount" 		=>	$contributionAmount,
+                    "debtAmount" 			    =>	$selectDebt,
                     "authorised_name" 			=>	$authorised_name,
                     "token_id" 					=>	$token_id
 
                 ));
-
-				$selectTotalcontribution = selectNetorDebt('account_table', 'totalContribution', 'token_id', $token_id);
-                $selectDebt = selectNetorDebt('debtor_table', 'debtAmount', 'token_id', $token_id);
-                $totalCash = select_Cash('totalcash_table','totalCash');
 
                 if($selectDebt != 0){
 
@@ -84,11 +85,9 @@ if (Input::exists()){
 
                     update_table('registration_table', 'netAmount', $savings, 'token_id', $token_id);
                 }
-                
 
-				
-				
-				
+                
+                
 				
 				$_POST[] = array();
 				echo 'okay';

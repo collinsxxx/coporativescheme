@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
-    get_pagination();
-    // get_pending_list();
+    get_Contributionpagination();
+    get_Deductpagination();
     get_contribution_table_data();
     pendingRequest();
     totalAmount();
@@ -17,22 +17,22 @@ $(document).ready(function(){
     // get_announcement_pagination();
     // get_pending_list_pagination();
 
-    function get_pagination(){
+    function get_Contributionpagination(){
 		$.ajax({
-			url: '../components/modules/pagination.php',
-			data: "getnumber",
+			url: '../components/modules/Contributionpagination.php',
+			data: "getContributionpagination",
 			success:function(html){
-				$("#pagination").html(html);
+				$("#Contributionpagination").html(html);
 			}
 		});
     }
     
-    function get_announcement_pagination(){
+    function get_Deductpagination(){
 		$.ajax({
-			url: '../components/modules/announcementPagination.php',
-			data: "getAnnouncementPagination",
+			url: '../components/modules/DeductPagination.php',
+			data: "getDeductPagination",
 			success:function(html){
-				$("#announcement_pagination").html(html);
+				$("#DeductPagination").html(html);
 			}
 		});
     }
@@ -197,7 +197,7 @@ $(document).ready(function(){
         });
     }
 
-    $("body").on("click", ".pagination_link", function(){
+    $("body").on("click", ".Deductpagination_link", function(){
 		var page = $(this).attr("id");
 		get_table_data(page);
 	});
@@ -339,7 +339,7 @@ $(document).ready(function(){
         });
     }
 
-    $("body").on("click", ".pagination_link", function(){
+    $("body").on("click", ".Contributionpagination_link", function(){
 		var page = $(this).attr("id");
 		get_contribution_table_data(page);
 	});
@@ -354,10 +354,11 @@ $(document).ready(function(){
                 row += '<td class="text-center upper">'+ value.unique_id +'</td>';  
                 row += '<td class="text-center upper">'+ value.fullName +'</td>';
                 row += '<td class="text-center upper">'+ value.contributionAmount +'</td>';
+                row += '<td class="text-center upper" >'+ value.debtAmount +'</td>';
                 row += '<td class="text-center upper" >'+ value.authorised_name +'</td>';
                 // button part
                 row += '<td class="text-center upper" data-id="'+ value.id +'">';
-                row += '<button class=" btn btn-primary btn-sm viewContribution"  data-toggle="modal" data-target="#viewContribution"> <i class="fa fa-eyes"></i> Dedute </button>';
+                row += '<button class=" btn btn-primary btn-sm viewContribution"  data-toggle="modal" data-target="#viewContribution"> <i class="fa fa-eye"></i> </button>';
                 // row += '<button class=" btn btn-primary btn-sm delete-members" id="delete_member"> <i class="fa fa-trash"></i> </button>'; 
                 row += '</td>';
                 row += '</tr>'; 

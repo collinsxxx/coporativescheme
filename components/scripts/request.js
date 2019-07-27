@@ -15,7 +15,7 @@ $(document).ready(function(){
     announcement_table();
     get_announcement_pagination();
     get_pending_list_pagination();
-    get_debtors_list_pagination()
+    get_debtors_list_pagination();
     get_debtors_list();
 
     function get_pagination(){
@@ -551,6 +551,7 @@ $(document).ready(function(){
                         CountMembers();
                         get_pagination();
                         get_pending_list_pagination();
+                        get_debtors_list_pagination();
                         get_pending_list();
                         get_debtors_list();
                         $("#send").html('Pay Member');
@@ -570,6 +571,7 @@ $(document).ready(function(){
                         CountMembers();
                         get_pagination();
                         get_pending_list_pagination();
+                        get_debtors_list_pagination();
                         get_pending_list();
                         get_debtors_list();
                         $("#send").html('<i class="fa fa-save"></i>&ensp;Create');

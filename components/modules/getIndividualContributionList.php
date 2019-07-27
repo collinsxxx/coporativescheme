@@ -4,7 +4,12 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/fundscheme/constant/config.php");
 
 require_once(ROOT_PATH . 'core/init.php');
 
-$record_per_page = 4;
+$record_per_page = 10;
+
+if(isset($_GET["id"])){
+  $id = $_GET["id"];
+
+} 
 
 if(isset($_GET["page"])){
   $page = $_GET["page"];
@@ -16,7 +21,7 @@ if(isset($_GET["page"])){
   $start_from = ($page - 1)* $record_per_page;
 
 
-  $variable = select_all_pagination('contribution_table', $start_from, $record_per_page);
+  $variable = individualContributionView('contribution_table', $id, $start_from, $record_per_page);
 
 
   if ($variable != null) {
@@ -31,7 +36,6 @@ if(isset($_GET["page"])){
       "fullName"                  => $row["fullname"],
       "contributionAmount"        => number_format($row["contributionAmount"]),
       "debtAmount"                => number_format($row["debtAmount"]),
-      "authorised_name"           => $row["authorised_name"],
       
     ];
   }

@@ -42,10 +42,7 @@ include(ROOT_PATH . 'inc/menubar.php');
                             </tbody>
                         </table>
                     </div>
-                    <div class="btn-group pull-right">
-                          <button class="btn btn-default" type="button">5</button>
-                          <button class="btn btn-default" type="button">6</button>
-                          <button class="btn btn-default" type="button">7</button>
+                    <div class="btn-group pull-right" id="DeductPagination">
                     </div>
                 </div>
             </div>
@@ -74,7 +71,8 @@ include(ROOT_PATH . 'inc/menubar.php');
                                     <th style="text-align: center">DATE</th>
                                     <th style="text-align: center">UNIQUE ID</th>
                                     <th style="text-align: center">FULLNAME</th>
-                                    <th style="text-align: center">AMOUNT</th>
+                                    <th style="text-align: center">AMOUNT =N=</th>
+                                    <th style="text-align: center">PREV. DEBT =N=</th>
                                     <th style="text-align: center">AUTHOR NAME</th>
                                     <th style="text-align: center">ACTIONS</th>
                                 </tr>
@@ -84,10 +82,7 @@ include(ROOT_PATH . 'inc/menubar.php');
                             </tbody>
                         </table>
                     </div>
-                    <div class="btn-group pull-right">
-                          <button class="btn btn-default" type="button">5</button>
-                          <button class="btn btn-default" type="button">6</button>
-                          <button class="btn btn-default" type="button">7</button>
+                    <div class="btn-group pull-right" id="Contributionpagination">
                     </div>
                 </div>
             </div>

@@ -4,7 +4,7 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/fundscheme/constant/config.php");
 
 require_once(ROOT_PATH . 'core/init.php');
 
-$record_per_page = 10;
+$record_per_page = 1;
 
 if(isset($_GET["page"])){
   $page = $_GET["page"];

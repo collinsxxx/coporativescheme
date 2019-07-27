@@ -47,4 +47,20 @@ $value = selectNetorDebt('account_table', 'totalContribution', 'token_id', );
 // echo $contribution;
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>
