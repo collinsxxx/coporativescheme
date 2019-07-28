@@ -10,6 +10,7 @@ if(Session::exists('home')) {
       $token        = $user->data()->token_id;
       $id               = $user->data()->id;
       $username = $user->data()->username;
+      $statues = $user->data()->loginStatues;
 
   } else {
     Redirect::to(404);
@@ -24,3 +25,4 @@ if(Session::exists('home')) {
 ?>
 
 <input type="text" name="token_id" id="token_id" value="<?php echo $token;?>" hidden>
+<input type="text" name="statues" id="statues" value="<?php echo $statues;?>" hidden>

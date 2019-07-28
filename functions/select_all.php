@@ -252,7 +252,7 @@ function selectField($table, $field, $where, $id ) {
         exit;
     }
         try{
-        $result = $db->prepare("SELECT {$field} FROM {$table} WHERE $where = ?");
+        $result = $db->prepare("SELECT {$field} FROM {$table} WHERE {$where} = ?");
         $result->bindParam(1, $id);
         $result->execute();
         }catch(Exception $e){
@@ -266,104 +266,104 @@ function selectField($table, $field, $where, $id ) {
     return $reply;
 }
 
-// function displayName($table, $name) {
-//     try{
-//     $db = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT,DB_USER,DB_PASS);
-//     $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-//     $db->exec("SET NAMES 'utf8'");
-//     } catch (Exception $e){
-//         // if unable to connect to the database
-//         echo "Could not connect to the database";
-//         exit;
-//     }
-//         try{
-//         $result = $db->prepare("SELECT `firstName`,`lastName` FROM {$table} WHERE id = ?");
-//         $result->bindParam(1, $name);
-//         $result->execute();
-//         }catch(Exception $e){
-//         echo "could not retrive data, something went wrong ($table) ";
-//         exit;
-//         }
-//         //pass the query into the product variable
-//         $return = $result->fetchAll(PDO::FETCH_ASSOC);
+function displayName($table, $name) {
+    try{
+    $db = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT,DB_USER,DB_PASS);
+    $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    $db->exec("SET NAMES 'utf8'");
+    } catch (Exception $e){
+        // if unable to connect to the database
+        echo "Could not connect to the database";
+        exit;
+    }
+        try{
+        $result = $db->prepare("SELECT `firstName`,`lastName` FROM {$table} WHERE id = ?");
+        $result->bindParam(1, $name);
+        $result->execute();
+        }catch(Exception $e){
+        echo "could not retrive data, something went wrong ($table) ";
+        exit;
+        }
+        //pass the query into the product variable
+        $return = $result->fetchAll(PDO::FETCH_ASSOC);
 
-//     return $return;
-// }
+    return $return;
+}
 
 
 
-// function RowCountExistValues($table, $name, $name2) {
-//     try{
-//     $db = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT,DB_USER,DB_PASS);
-//     $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-//     $db->exec("SET NAMES 'utf8'");
-//     } catch (Exception $e){
-//         // if unable to connect to the database
-//         echo "Could not connect to the database";
-//         exit;
-//     }
-//         try{
-//         $result = $db->prepare("SELECT `date`, `matricNo` FROM `logbook` WHERE `date` = ? AND `matricNo` = ? ");
-//         $result->bindParam(1, $name);
-//         $result->bindParam(2, $name2);
-//         $result->execute();
-//         }catch(Exception $e){
-//         echo "could not retrive data, something went wrong ($table) ";
-//         exit;
-//         }
-//         //pass the query into the product variable
-//         $return = $result->fetchAll(PDO::FETCH_ASSOC);
+function RowCountExistValues($table, $name, $name2) {
+    try{
+    $db = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT,DB_USER,DB_PASS);
+    $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    $db->exec("SET NAMES 'utf8'");
+    } catch (Exception $e){
+        // if unable to connect to the database
+        echo "Could not connect to the database";
+        exit;
+    }
+        try{
+        $result = $db->prepare("SELECT `date`, `matricNo` FROM `logbook` WHERE `date` = ? AND `matricNo` = ? ");
+        $result->bindParam(1, $name);
+        $result->bindParam(2, $name2);
+        $result->execute();
+        }catch(Exception $e){
+        echo "could not retrive data, something went wrong ($table) ";
+        exit;
+        }
+        //pass the query into the product variable
+        $return = $result->fetchAll(PDO::FETCH_ASSOC);
 
-//     return $return;
-// }
+    return $return;
+}
 
-// function select_all_limit($table, $department) {
-//     try{
-//     $db = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT,DB_USER,DB_PASS);
-//     $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-//     $db->exec("SET NAMES 'utf8'");
-//     } catch (Exception $e){
-//         // if unable to connect to the database
-//         echo "Could not connect to the database";
-//         exit;
-//     }
-//         try{
-//         $result = $db->prepare("SELECT * FROM {$table} WHERE department = ? ORDER BY Rand() LIMIT 4");
-//         $result->bindParam(1, $department);
-//         $result->execute();
-//         }catch(Exception $e){
-//         echo "could not retrive data, something went wrong ($table) ";
-//         exit;
-//         }
-//         //pass the query into the product variable
-//         $return = $result->fetchAll(PDO::FETCH_ASSOC);
+function select_all_limit($table, $department) {
+    try{
+    $db = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT,DB_USER,DB_PASS);
+    $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    $db->exec("SET NAMES 'utf8'");
+    } catch (Exception $e){
+        // if unable to connect to the database
+        echo "Could not connect to the database";
+        exit;
+    }
+        try{
+        $result = $db->prepare("SELECT * FROM {$table} WHERE department = ? ORDER BY Rand() LIMIT 4");
+        $result->bindParam(1, $department);
+        $result->execute();
+        }catch(Exception $e){
+        echo "could not retrive data, something went wrong ($table) ";
+        exit;
+        }
+        //pass the query into the product variable
+        $return = $result->fetchAll(PDO::FETCH_ASSOC);
 
-//     return $return;
-// }
+    return $return;
+}
 
-// function select_single($table, $name) {
-//     try{
-//     $db = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT,DB_USER,DB_PASS);
-//     $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-//     $db->exec("SET NAMES 'utf8'");
-//     } catch (Exception $e){
-//         // if unable to connect to the database
-//         echo "Could not connect to the database";
-//         exit;
-//     }
-//         try{
-//         $result = $db->prepare("SELECT * FROM {$table} WHERE id = ?");
-//         $result->bindParam(1, $name);
-//         $result->execute();
-//         }catch(Exception $e){
-//         echo "could not retrive data, something went wrong ($table) ";
-//         exit;
-//         }
-//         //pass the query into the product variable
-//         $return = $result->fetchAll(PDO::FETCH_ASSOC);
+function select_single($table, $name) {
+    try{
+    $db = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT,DB_USER,DB_PASS);
+    $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    $db->exec("SET NAMES 'utf8'");
+    } catch (Exception $e){
+        // if unable to connect to the database
+        echo "Could not connect to the database";
+        exit;
+    }
+        try{
+        $result = $db->prepare("SELECT * FROM {$table} WHERE id = ?");
+        $result->bindParam(1, $name);
+        $result->execute();
+        }catch(Exception $e){
+        echo "could not retrive data, something went wrong ($table) ";
+        exit;
+        }
+        //pass the query into the product variable
+        $return = $result->fetchAll(PDO::FETCH_ASSOC);
 
-//     return $return;
-// }
+    return $return;
+}
 
 function deleteMember($table, $name) {
     try{
@@ -552,51 +552,51 @@ function row_count23($table, $name) {
     return $return;
 }
 
-// function StudentMatric($table, $field, $name) {
-//     try{
-//     $db = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT,DB_USER,DB_PASS);
-//     $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-//     $db->exec("SET NAMES 'utf8'");
-//     } catch (Exception $e){
-//         // if unable to connect to the database
-//         echo "Could not connect to the database";
-//         exit;
-//     }
-//         try{
-//         $result = $db->prepare("SELECT {$field} FROM {$table} WHERE tokenId = ?");
-//         $result->bindParam(1, $name);
-//         $result->execute();
-//         }catch(Exception $e){
-//         echo "could not retrive data, something went wrong ($table) ";
-//         exit;
-//         }
-//         //pass the query into the product variable
-//         $return = $result->fetch(PDO::FETCH_ASSOC);
-//         $reply = $return[$field];
-//     return $reply;
-// }
+function StudentMatric($table, $field, $name) {
+    try{
+    $db = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT,DB_USER,DB_PASS);
+    $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    $db->exec("SET NAMES 'utf8'");
+    } catch (Exception $e){
+        // if unable to connect to the database
+        echo "Could not connect to the database";
+        exit;
+    }
+        try{
+        $result = $db->prepare("SELECT {$field} FROM {$table} WHERE tokenId = ?");
+        $result->bindParam(1, $name);
+        $result->execute();
+        }catch(Exception $e){
+        echo "could not retrive data, something went wrong ($table) ";
+        exit;
+        }
+        //pass the query into the product variable
+        $return = $result->fetch(PDO::FETCH_ASSOC);
+        $reply = $return[$field];
+    return $reply;
+}
 
-// function select_all_reverse($table) {
-//     try{
-//     $db = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT,DB_USER,DB_PASS);
-//     $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-//     $db->exec("SET NAMES 'utf8'");
-//     } catch (Exception $e){
-//         // if unable to connect to the database
-//         echo "Could not connect to the database";
-//         exit;
-//     }
-//         try{
-//         $result = $db->query("SELECT * FROM {$table} ORDER BY id DESC");
-//         }catch(Exception $e){
-//         echo "could not retrive data, something went wrong ($table) ";
-//         exit;
-//         }
-//         //pass the query into the product variable
-//         $return = $result->fetchAll(PDO::FETCH_ASSOC);
+function select_all_reverse($table) {
+    try{
+    $db = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT,DB_USER,DB_PASS);
+    $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    $db->exec("SET NAMES 'utf8'");
+    } catch (Exception $e){
+        // if unable to connect to the database
+        echo "Could not connect to the database";
+        exit;
+    }
+        try{
+        $result = $db->query("SELECT * FROM {$table} ORDER BY id DESC");
+        }catch(Exception $e){
+        echo "could not retrive data, something went wrong ($table) ";
+        exit;
+        }
+        //pass the query into the product variable
+        $return = $result->fetchAll(PDO::FETCH_ASSOC);
 
-//     return $return;
-// }
+    return $return;
+}
 
 
 function update_table($table, $set, $value, $where, $id) {
@@ -641,27 +641,27 @@ function update_cash_table($table, $set, $value) {
 }
 
 
-// function select_all_asc($table) {
-//     try{
-//     $db = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT,DB_USER,DB_PASS);
-//     $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-//     $db->exec("SET NAMES 'utf8'");
-//     } catch (Exception $e){
-//         // if unable to connect to the database
-//         echo "Could not connect to the database";
-//         exit;
-//     }
-//         try{
-//         $result = $db->query("SELECT * FROM {$table} ORDER BY id ASC");
-//         }catch(Exception $e){
-//         echo "could not retrive data, something went wrong ($table) ";
-//         exit;
-//         }
-//         //pass the query into the product variable
-//         $return = $result->fetchAll(PDO::FETCH_ASSOC);
+function select_all_asc($table) {
+    try{
+    $db = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT,DB_USER,DB_PASS);
+    $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    $db->exec("SET NAMES 'utf8'");
+    } catch (Exception $e){
+        // if unable to connect to the database
+        echo "Could not connect to the database";
+        exit;
+    }
+        try{
+        $result = $db->query("SELECT * FROM {$table} ORDER BY id ASC");
+        }catch(Exception $e){
+        echo "could not retrive data, something went wrong ($table) ";
+        exit;
+        }
+        //pass the query into the product variable
+        $return = $result->fetchAll(PDO::FETCH_ASSOC);
 
-//     return $return;
-// }
+    return $return;
+}
 
 function selectNetodrDebt($table, $name) {
     try{
@@ -1035,32 +1035,32 @@ function select_related_books($table, $field, $match_field, $id) {
 
 
 
-// function all_state($table) {
-//     $output = '';
-//     try{
-//     $db = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT,DB_USER,DB_PASS);
-//     $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-//     $db->exec("SET NAMES 'utf8'");
-//     } catch (Exception $e){
-//         // if unable to connect to the database
-//         echo "Could not connect to the database";
-//         exit;
-//     }
-//         try{
-//         $result = $db->query("SELECT * FROM $table ");
-//         }catch(Exception $e){
-//         echo "could not retrive data, something went wrong ($table) ";
-//         exit;
-//         }
-//         //pass the query into the product variable
-//         // $value = $result->fetchAll(PDO::FETCH_ASSOC);
+function all_state($table) {
+    $output = '';
+    try{
+    $db = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";port=" . DB_PORT,DB_USER,DB_PASS);
+    $db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    $db->exec("SET NAMES 'utf8'");
+    } catch (Exception $e){
+        // if unable to connect to the database
+        echo "Could not connect to the database";
+        exit;
+    }
+        try{
+        $result = $db->query("SELECT * FROM $table ");
+        }catch(Exception $e){
+        echo "could not retrive data, something went wrong ($table) ";
+        exit;
+        }
+        //pass the query into the product variable
+        // $value = $result->fetchAll(PDO::FETCH_ASSOC);
 
-//     while($row = $result->fetchAll()){
-//         $output .= '<option value="'.$row['id'].'">'.$row['state'].'</option>'; 
-//     }
+    while($row = $result->fetchAll()){
+        $output .= '<option value="'.$row['id'].'">'.$row['state'].'</option>'; 
+    }
 
-//     return $output;
-// }
+    return $output;
+}
 
 function bd_nice_number($n) {
         // first strip any formatting;

@@ -217,7 +217,7 @@ $(document).ready(function(){
                 row += '<td class="text-center upper" data-id="'+ value.id +'">';
                 if(value.statues == 1){
                 	row += '<button style="background-color:white" class="btn deactivate"><i style="color:green; font-size:140%" class="fa fa-toggle-on"></i></button> '; 
-                }else if(value.statues == 2){
+                }else if(value.statues == 0){
                 	row += '<button style="background-color:white" class="btn activate"><i style="color:green; font-size:140%" class="fa fa-toggle-off"></i></button>';
                 }
                 row += '</td>';

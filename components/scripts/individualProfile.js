@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+    autoLogOut();
     $('#send').hide();
     $('#label_image').hide();
     
@@ -8,6 +8,14 @@ $(document).ready(function(){
     loadbuttons();
     image_loaded();
     loadProfileImage();
+    
+
+    function autoLogOut() {
+        var id = $("#statues").val();
+            if(id == 0){
+                window.location.href = "../../index.php";
+            }
+        }
 
 	function loadbuttons() {
 		$('#editButton').click(function(){
@@ -77,15 +85,18 @@ $(document).ready(function(){
 
                function submitForm(){
             var data = $("#updateProfile").serialize();
+            
             $.ajax({
                 type: 'POST',
                 url: '../../components/modules/updateProfile.php',
                 data: data,
                 beforeSend: function(){
                     $("#send").attr("disabled", true);
+                    autoLogOut();
                 },	
                 success: function(response){
                     if (response == 'created'){
+                        autoLogOut();
                         loadProfile();
                         $("#send").attr("disabled", false);
                         loadbuttons();
@@ -206,9 +217,6 @@ $(document).ready(function(){
             row +='</select';
             row +='</div>';
             row +='</div> <i>*To Change your Bank Details please contact the administrative officer</i>';
-            
-
-            
 
             row +='<div class="col-md-6 col-sm-6 col-xs-12">';
             row +='<div class="form-group">';
@@ -274,7 +282,7 @@ $(document).ready(function(){
 
         $.ajax({
             url: '../../components/modules/getProfileImage.php',
-            type: 'POST',
+            type: 'GET',
             data: { id : id },
             dataType: 'json',
             beforeSend: function(){

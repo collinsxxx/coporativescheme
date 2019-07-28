@@ -12,7 +12,7 @@ include(ROOT_PATH . 'inc/loginHeader.php');
           <section class="login_content col-md-12" >
                    
             <form id="loginUser" class="form-horizontal form-label-left input_mask">
-              <h2 style="margin-top:45%; font-size:200%;">COPORATIVE FUND SCHEME</h2>
+              <h2 style="margin-top:25%; font-size:200%;">COPORATIVE FUND SCHEME</h2>
               <div>
                 <div id="msg" >
 			          </div> 

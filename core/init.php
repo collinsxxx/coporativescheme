@@ -28,6 +28,9 @@ spl_autoload_register( function($class) {
 require_once (ROOT_PATH.'functions/sanitize.php');
 require_once (ROOT_PATH.'functions/select_all.php');
 require_once (ROOT_PATH.'functions/database.php');
+// require_once (ROOT_PATH.'functions/PHPMailer/src/PHPMailer.php');
+// require_once (ROOT_PATH.'functions/PHPMailer/src/Exception.php');
+// require_once (ROOT_PATH.'functions/PHPMailer/src/SMTP.php');
 
 if(Cookie::exists(Config::get('remember/cookie_name')) && !Session::exists(Config::get('session/session_name'))) {
 	$hash = Cookie::get(Config::get('remember/cookie_name'));

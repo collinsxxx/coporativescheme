@@ -9,6 +9,7 @@ $(document).ready(function(){
     totalAmount();
     totalDebtIndividual();
     UniqueIDDisplay();
+    autoLogOut();
 
     function totalAmount() {
         var id = $("#token_id").val();
@@ -21,6 +22,13 @@ $(document).ready(function(){
        }
        });
    }
+
+   function autoLogOut() {
+    var id = $("#statues").val();
+        if(id == 0){
+            window.location.href = "../../index.php";
+        }
+    }
 
    function UniqueIDDisplay() {
         var id = $("#token_id").val();
@@ -101,7 +109,7 @@ $(document).ready(function(){
                 }
 
             }else{
-                $("#nofill").html('<h3 class="text-center"> YOU HAVE NO ACTIVITIES FILLED IN YET</h3>');
+                $("#nofill").html('<h3 class="text-center"> YOU HAVE NO ANNOUNCEMENT YET</h3>');
             }
 
         });
@@ -153,11 +161,11 @@ $(document).ready(function(){
                 //call manage data function
                 manage_data(data.data);
                 }else{
-                    $("#nofill").html('NO RECORDED LEAVE FOUND');
+                    $("#nofill2").html('NO RECORDED LEAVE FOUND');
                 }
 
             }else{
-                $("#nofill").html('<h3 class="text-center"> YOU HAVE NO ACTIVITIES FILLED IN YET</h3>');
+                $("#nofill2").html('<h3 class="text-center"> YOU HAVE NO CONTRIBUTION YET</h3>');
             }
 
         });
@@ -209,7 +217,7 @@ $(document).ready(function(){
                 }
 
             }else{
-                $("#nofill").html('<h3 class="text-center"> YOU HAVE NO ACTIVITIES FILLED IN YET</h3>');
+                $("#nofill").html('<h3 class="text-center"> YOU HAVE NO LOAN REQUEST YET</h3>');
             }
 
         });

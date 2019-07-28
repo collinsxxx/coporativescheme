@@ -21,7 +21,7 @@ $(document).ready(function(){
               submitHandler: submitForm
         });
 
-               function submitForm(){
+        function submitForm(){
             var data = $("#loginUser").serialize();
             $.ajax({
                 type: 'POST',

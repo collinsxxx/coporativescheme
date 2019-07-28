@@ -10,7 +10,7 @@ if(isset($_GET["id"])){
 
 }
 
-$id = "0b415cda2fa4f288e675c20d743e9f16";
+// $id = "ed454471ca4881e54f2b5e2acb6f3aa0";
 
 
 $variable = select_profle('registration_table', $id);

@@ -5,6 +5,7 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/fundscheme/constant/config.php");
 require_once(ROOT_PATH . 'core/init.php');
 
 $unique_id = "NAL".rand(10000,99999);
+$verificationCode = rand(1000,9999);
 $token_id = Token::generate();
 
 if (Input::exists()){
@@ -30,7 +31,8 @@ if (Input::exists()){
 				);
 		if ($validation->passed()){
 
-			$members = new Members();
+            $members = new Members();
+       
             
             $netAmount = 0.00;
             $debtAmount = 0.00;
@@ -39,6 +41,8 @@ if (Input::exists()){
             $privilege = 1;
             $login_statues = 1;
             $imageLink = "user.png";
+            $fullname = Input::get('surname')." ".Input::get('othername');
+            $emailAddress = Input::get('emailAddress');
             
 
 			try{
@@ -50,7 +54,7 @@ if (Input::exists()){
                     "homeAddress" 				=>	Input::get('homeAddress'),
                     "mobileNumber" 				=>	Input::get('mobileNumber'),
                     "sex" 						=>	Input::get('sex'),
-                    "emailAddress" 				=>	Input::get('emailAddress'),
+                    "emailAddress" 				=>	$emailAddress,
                     "location" 					=>	Input::get('location'),
                     "contributionAmount" 		=>	Input::get('contributionAmount'),
                     "imageLink" 				=>	$imageLink,
@@ -78,6 +82,7 @@ if (Input::exists()){
                     "salt" 				        =>	$salt,
                     "token_id" 				    =>	$select['token_id'],
                     "privilege" 				=>	$privilege,
+                    "verificationCode" 			=>	$verificationCode,
                     "loginStatues" 			    =>	$login_statues,
                     "reg_id" 				    =>	$select['id']
                 ));
@@ -99,13 +104,20 @@ if (Input::exists()){
                     "totalContribution" 		=>	$netAmount
                 ));
 
-
 				
 				$_POST[] = array();
 				echo 'created';
 			}catch(Exception $e){
 				die($e->getMessage());
-			}
+            }
+
+            $mail = new PHPMailer();
+            
+            try{
+                require_once(ROOT_PATH.'components/modules/mailer.php');
+            }catch(Exception $e){
+
+            }
 
 		}else{
 			foreach($validation->errors() as $error){

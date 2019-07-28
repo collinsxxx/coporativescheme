@@ -56,7 +56,9 @@ include(ROOT_PATH . 'inc/menubar.php');
                             <tbody id="individualContributionTable" class="text-center">
                                 
                             </tbody>
+                            
                         </table>
+                        <div id="nofill"></div>
                     </div>
                     <div class="btn-group pull-right" id="individualContributionPagination">
                     </div>
@@ -100,6 +102,7 @@ include(ROOT_PATH . 'inc/menubar.php');
                                 
                             </tbody>
                         </table>
+                        <div id="nofill2"></div>
                     </div>
                     <div class="btn-group pull-right" id="individualLoanRequestPagination">
                     </div>
