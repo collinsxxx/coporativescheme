@@ -1,5 +1,4 @@
 <?php 
-
 require_once($_SERVER["DOCUMENT_ROOT"]."/fundscheme/constant/config.php");
 
 require_once(ROOT_PATH . 'core/init.php');
