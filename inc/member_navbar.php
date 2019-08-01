@@ -27,6 +27,9 @@
                   <li class="<?php if($pageTitle == "profile"){ echo "active";} ?>">
                     <a href="<?php echo BASE_URL;?>pages/account/profile.php"><i class="fa fa-user"></i> Profile </a>
                   </li>
+                  <li class="<?php if($pageTitle == "change"){ echo "active";} ?>">
+                    <a href="<?php echo BASE_URL;?>pages/account/changepassword.php"><i class="fa fa-user"></i> Change Password </a>
+                  </li>
                 </ul>
               </div>
               

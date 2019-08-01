@@ -29,6 +29,13 @@ include(ROOT_PATH . 'inc/loginHeader.php');
 			          </div> 
               </div>
             </form>
+            <div class="row ">
+            <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+              <div class="pull- upper" style="margin-top:0.6%;">
+                Coporative Fund Scheme by <a href="https://colorlib.com">Collins Benson </a>
+              </div>
+            </div>
+          </div>
           </section>
         </div>
     </div>

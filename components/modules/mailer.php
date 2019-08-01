@@ -321,45 +321,39 @@ $mail->Body    = '<!doctype html>
                             <span class="preheader">This is preheader text. Some clients will show this text as a preview.</span>
                             <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body">
                             <tr>
-                                <td>&nbsp;</td>
-                                <td class="container">
-                                <div class="content">
-
-                                    <!-- START CENTERED WHITE CONTAINER -->
-                                    <table role="presentation" class="main">
-
-                                    <!-- START MAIN CONTENT AREA -->
-                                    <tr>
-                                        <td class="wrapper">
-                                        <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                                            <tr>
-                                            <td>
-                                                <p>Hi '.$fullname.',</p>
-                                                <h3> Please Verify your Account.</h3>
-                                                <p>Username: '.strtoupper($unique_id).'</p>
-                                                <p>Password: '.$password.'</p> <br/>
-                                                <p>Your Verification Code is '.$verificationCode.'</p>
-                                                <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
-                                                <tbody>
-                                                    <tr>
-                                                    <td align="left">
-                                                        <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                                                        <tbody>
-                                                            <tr>
-                                                            <td> <a href="http://192.168.88.250/fundscheme/verification.php?tokenId='.$token_id.'" target="_blank">Click Here to Verify your Account</a> </td>
-                                                            </tr>
-                                                        </tbody>
-                                                        </table>
-                                                    </td>
-                                                    </tr>
-                                                </tbody>
-                                                </table>
-                                                <p>Please keep your login details safe and to yourself alone.</p>
-                                            </td>
-                                            </tr>
-                                        </table>
+                            <td class="wrapper">
+                            <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                <td>
+                                    <p>Hi '.$fullname.',</p>
+                                    <p>Congratulations you account was created successfully, you can now log on to the Coporative Fund Scheme.</p>
+                                    <p>Your log in details are stated below.</p>
+                                    <h3> Please Verify your Account.</h3>
+                                    <p>Username: '.strtoupper($unique_id).'</p>
+                                    <p>Password: '.$password.'</p> <br/>
+                                    <p>Your Verification Code is '.$verificationCode.'</p>
+                                    <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
+                                    <tbody>
+                                        <tr>
+                                        <td align="left">
+                                            <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                                            <tbody>
+                                                <tr>
+                                                <td> <a href="http://coporativescheme.herokuapp.com/verification.php?tokenId='.$token_id.'" target="_blank">Click Here to Verify your Account</a> </td>
+                                                </tr>
+                                            </tbody>
+                                            </table>
                                         </td>
-                                    </tr>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                    <p>Please keep your login details safe and to yourself alone.</p>
+                                    <p>to login visit http://coporativescheme.herokuapp.com/.</p>
+                                </td>
+                                </tr>
+                            </table>
+                            </td>
+                        </tr>
 
                                     <!-- END MAIN CONTENT AREA -->
                                     </table> </div>

@@ -4,12 +4,16 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/fundscheme/constant/config.php");
 
 require_once(ROOT_PATH . 'core/init.php');
 
+$permitted_chars = '0123456789abcfghijklmpqrstuvyz';
+// Output: 54esmdr0qf
+echo substr(str_shuffle($permitted_chars), 1, 6);
+
 
 // $mymoney = 100000;
 // $contribution = 30000;
 // $debt = 20000;
 
-$value = selectNetorDebt('account_table', 'totalContribution', 'token_id', );
+// $value = selectNetorDebt('account_table', 'totalContribution', 'token_id', );
 
 // $select = select_limit('registration_table');
 
